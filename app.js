@@ -7,6 +7,7 @@ const result_p = document.querySelector(".result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
+var audio = new Audio("click_sound.mp3");
 
 function getComputerChoice() {
     const choices = ["r", "p", "s"];
@@ -89,9 +90,18 @@ function game(userChoice) {
 }
 
 function main() {
-    rock_div.addEventListener("click", () => game("r"));
-    paper_div.addEventListener("click", () => game("p"));
-    scissors_div.addEventListener("click", () => game("s"));
+    rock_div.addEventListener("click", () => {
+        game("r");
+        audio.play();
+    });
+    paper_div.addEventListener("click", () => {
+        game("p");
+        audio.play();
+    });
+    scissors_div.addEventListener("click", () => {
+        game("s");
+        audio.play();
+    });
 }
 
 main();
